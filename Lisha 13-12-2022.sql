@@ -8,6 +8,7 @@ CREATE TABLE employees(
     location varchar(255),
     email varchar(255) UNIQUE,
     phone_no bigint,
+	blood_group varchar(20), 
     PRIMARY KEY(id)
 );
 -- show tables;

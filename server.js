@@ -35,7 +35,7 @@ connection.connect((err)=>{
 })
 //http://localhost:4000/list
 app.get("/list",(req,res)=>{
-    let sqlQuery =`select * from employees;`
+    let sqlQuery =`select * from lishajonwal;`
     connection.query(sqlQuery, (error, result)=>{
         if(error){
             res.status(500).send(error);
@@ -51,7 +51,7 @@ app.post('/create',(req,res)=>{
     console.log(req.body)
     // console.log(name,age,location,email,phone_no,blood_group)
 
-    let sqlQuery =  `insert into employees (name,age,location,email,phone_no,blood_group) values ('${name}',${age},'${location}','${email}',${phone_no},'${blood_group}');`;
+    let sqlQuery =  `insert into lishajonwal (name,age,location,email,phone_no,blood_group) values ('${name}',${age},'${location}','${email}',${phone_no},'${blood_group}');`;
     connection.query(sqlQuery, (error, result)=>{
         if(error){
             res.status(500).send(error);
@@ -74,7 +74,7 @@ app.post('/create',(req,res)=>{
 app.put('/edit/:id',(req,res)=>{
     const id = req.params.id;
     const {name,age,location,email,phone_no,blood_group}=req.body;
-    const sqlQuery = `update employees set name ='${name}', age=${age}, location = '${location}',email='${email}', phone_no=${phone_no},blood_group = '${blood_group}' where id =${id}`;
+    const sqlQuery = `update lishajonwal set name ='${name}', age=${age}, location = '${location}',email='${email}', phone_no=${phone_no},blood_group = '${blood_group}' where id =${id}`;
     connection.query(sqlQuery, (error, result)=>{
         if(error){
             res.status(500).send(error);
@@ -98,7 +98,7 @@ app.put('/edit/:id',(req,res)=>{
 app.delete("/delete/:id", (req, res) => {
   var id = req.params.id;
 
-  var sqlQuery = `DELETE FROM employees WHERE id=${id}`;
+  var sqlQuery = `DELETE FROM lishajonwal WHERE id=${id}`;
 
   connection.query(sqlQuery, (error, result) => {
     if(error){
